@@ -261,7 +261,7 @@ with tabB:
     import plotly.graph_objects as go
 
     metrics = ["算力供给","AI能力","生态与开发者","政企本地化","海外拓展","价格与产品策略"]
-    vendors = ["华为云","腾讯云","百度智能云","阿里云"]  # 展示顺序
+    vendors = ["阿里云","华为云","腾讯云","百度智能云",]  # 展示顺序
 
     # 2×2 极坐标子图
     fig_radar_grid = make_subplots(
@@ -335,7 +335,8 @@ with tabB:
         x=x_labels,  # 横轴：行业
         y=y_labels,  # 纵轴：服务商
         colorscale=[
-            [0.0,"#E5E9E9"],
+            [0.0,"black"],
+            [0.6,"white"],
             [1.0,"#f2a36b"]
         ],
         zmin=0, zmax=10,
@@ -363,7 +364,7 @@ with tabB:
             val = z[i][j]
             if pd.isna(val):
                 continue
-            color = "white" if val >= 7 else "#111827"
+            color = "white" if val >= 20 else "#111827"
             fig_heat.add_annotation(
                 x=x, y=y, text=f"{val:.1f}",
                 showarrow=False, font=dict(color=color, size=14)
